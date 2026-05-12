@@ -1,0 +1,370 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- font awsome -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg  bg-white position-fixed ">
+        <div class="container py-3">
+            <div class="  d-flex   justify-content-between align-items-center dinner-container">
+                <div class=" rounded-4 d-flex justify-content-center align-items-center fs-5 adrsess"
+                    style="width: fit-content;height: fit-content;margin-right: 8px;">
+                    <i class="fa-solid fa-address-book"></i>
+                </div>
+                <div>
+                    <span class="fs-4 fw-bold d-block">Contact<span style="color: #7F22FE;">Hub</span>
+                    </span>
+                    <span class="Manager" style="color: #7D7292;font-size: 13px;">Smart Contact Manager</span>
+                </div>
+            </div>
+            <div class="d-flex  align-items-center setting-container">
+                <a href="#input-container"> <button type="button" class="btn btn-primary rounded-4 px-3 py-2  fw-bold "
+                        id="contact-button">+ADD <span class="ADD">
+                            CONTACT</span>
+                    </button></a>
+                <div style="width: 2.5rem;height: 2.5rem;" class=" rounded-3 overflow-hidden backey"> <i
+                        class="fa-solid fa-bell"></i> </div>
+                <div style="width: 2.5rem;height: 2.5rem;" class="rounded-3 overflow-hidden backey"> <i
+                        class="fa-solid fa-gear "></i>
+                </div>
+                <div style="width: 2.5rem;height: 2.5rem;" class="rounded-3 overflow-hidden border-image"><img
+                        src="/images/avatar-4.jpg" alt="logo" class="w-100"></div>
+            </div>
+
+        </div>
+        <div id="input-container" class="bg-white  rounded-4  position-fixed  d-none" style="width: 480px;">
+            <div class=" p-3 m-0 d-flex justify-content-between align-items-center position-sticky top-0  z-3">
+                <span class="fw-bold fs-5"><a href="">Add New Contact</a></span>
+                <a class="close"><i class="fa-solid fa-xmark"></i></a>
+
+            </div>
+            <div class="px-3">
+                <div class=" d-flex gfgh justify-content-between align-items-center ">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center fs-4"
+                        style="background-color: #2674FF;width: 90px;height: 90px;"><i
+                            class="fa-solid fa-user text-white"></i></div>
+                    <input type="file" id="upload" hidden>
+
+                    <label for="upload" class="btn btn-primary hookty" style="margin-top: 10px;">
+                        <i class="fa-solid fa-camera" style="color: #6A7282;"></i> change photo
+                    </label>
+                </div>
+                <div>
+                    <label for="FullName">Full Name <span style="color: red;">*</span></label>
+                    <input oninput="validate(this)" id="FullName" type="text" placeholder="ENTER FULL NAME"
+                        style="background-color: #F9FAFB;" class="rounded-3 w-100 p-2">
+                    <div class="alert d-none m-0" style="font-size: smaller;color: #EC0024;">Name should contain only
+                        letters and
+                        spaces
+                        (2-50 characters)</div>
+                </div>
+                <div>
+                    <label for="PhoneNumber">Phone Number <span style="color: red;">*</span></label>
+                    <input oninput="validate(this)" id="PhoneNumber" type="tel" placeholder="e.g.,01012345678"
+                        style="background-color: #F9FAFB;" class="rounded-3 w-100 p-2">
+                    <div class="alert d-none m-0" style="font-size: smaller;color: #EC0024;">Please enter a valid
+                        Egyptian phone number</div>
+                </div>
+                <div>
+                    <label for="EmailAddress">Email Address <span style="color: red;">*</span></label>
+                    <input oninput="validate(this)" id="EmailAddress" type="email" placeholder="name@examble.com"
+                        style="background-color: #F9FAFB;" class="rounded-3 w-100 p-2">
+                    <div class="alert d-none m-0" style="font-size: smaller;color: #EC0024;">
+                        Please enter a valid email address</div>
+                </div>
+                <div>
+                    <label for="Address"> Address</label>
+                    <input id="Address" type="text" placeholder="ENTER ADDRESS" style="background-color: #F9FAFB;"
+                        class="rounded-3 w-100 p-2">
+                </div>
+                <div>
+                    <label for="Group"> Group</label>
+                    <select name="yhhh" id="Group" style="background-color: #F9FAFB;" class="rounded-3 w-100 p-2">
+                        <option value="group">select a group</option>
+                        <option value="family">family</option>
+                        <option value="friends">friends</option>
+                        <option value="work">work</option>
+                        <option value="school">school</option>
+                        <option value="other">other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="Notes" class="d-block">Notes
+                    </label>
+                    <textarea name="Notes" id="Notes" style="background-color: #F9FAFB;" class="rounded-3 w-100 p-2"
+                        placeholder="add notes about this contact"></textarea>
+                </div>
+                <div class="mt-4">
+                    <span class="me-4"> <input type="checkbox" id="Favorites" name="choose">
+                        <label for="Favorites" class="fs-6 ">
+                            <i class="fa-solid fa-star" style="color: #FF8100;"></i>
+                            <span class="fs-6 fw-normal " style="color: #6A7282;">Favorites</span>
+                        </label>
+                    </span>
+                    <span>
+                        <input type="checkbox" id="emergency" name="choose" width="200px">
+                        <label for="emergency" class="fs-6 ">
+                            <i class="fa-solid fa-heart-pulse" style="color: #EC0024;"></i>
+                            <span class="fs-6 fw-normal " style="color: #6A7282;">emergency</span>
+                        </label>
+                    </span>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button class="rounded-4 py-2 text-black w-48 cancel" id="cancel">cancel</button>
+                    <button class="rounded-4 py-2  w-48 save text-white" id="save"><i class="fa-solid fa-check"></i>save
+                        contact</button>
+                    <button class="rounded-4 py-2  w-48 save text-white d-none" onclick="update()" id="saveupdate"><i
+                            class="fa-solid fa-check"></i>save
+                        contact</button>
+                </div>
+            </div>
+        </div>
+        <div id="overlay">
+
+        </div>
+    </nav>
+    <header class="min-vh-100 " style="background-color: #F5F9FC;padding-top: 8rem;">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-md-4 col-lg-4">
+                    <div class="container-total d-flex  p-4 align-items-center bg-white rounded-4 border-total ">
+                        <div class="p-3 rounded-3"
+                            style="background-color: #1B68FF;width: fit-content;color: white; margin-right: 13px;"><i
+                                class="fa-solid fa-users"></i></div>
+                        <div>
+                            <span class=" d-block fw-semibold" style="color: #7D7292;font-size: 13px;">TOTAL</span>
+                            <span id="toty"><span class="fw-bold fs-4">0</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-4">
+                    <div class="container-total d-flex  p-4 align-items-center bg-white rounded-4 border-total ">
+                        <div class="p-3 rounded-3 star" style="width: fit-content;color: white; margin-right: 13px;"><i
+                                class="fa-solid fa-star"></i></div>
+                        <div>
+                            <span class=" d-block fw-semibold" style="color: #7D7292;font-size: 15px;">Favorites</span>
+                            <span id="favcount"><span class="fw-bold fs-4">0</span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-4">
+                    <div class="container-total d-flex  p-4 align-items-center bg-white rounded-4 border-total ">
+                        <div class="p-3 rounded-3"
+                            style="background-color: #F81244;width: fit-content;color: white; margin-right: 13px;"><i
+                                class="fa-solid fa-heart-pulse"></i></div>
+                        <div>
+                            <span class=" d-block fw-semibold" style="color: #7D7292;font-size: 15px;">Emergency</span>
+                            <span id="emrcount"><span class="fw-bold fs-4">0</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-12 col-xl-9 ">
+                    <div class=" Contacts ">
+                        <div>
+                            <span class="fw-bold fs-3 d-block">All Contacts</span>
+                            <span id="organize"><span class="fs-6 mt-0" style="color: #7D7292;">Manage and organize
+                                    your 0 contacts</span></span>
+                        </div>
+                        <div class="position-relative">
+                            <input onkeyup="search(this.value)" id="myinputy" type="email"
+                                placeholder="search by name,email,or phone..."
+                                class=" d-block w-100 py-3 px-5 rounded-4 mt-3" style="color: #7D7292;font-size: 18px;">
+                            <i class="fa-solid fa-search position-absolute search"></i>
+                        </div>
+                        <div class="container mt-4">
+                            <div class="row g-3" id="Nocontacts">
+                                <div class="py-20 text-center " id="hamoksha">
+                                    <div>
+                                        <div class="align-items-center justify-content-center d-flex">
+                                            <div class="book ">
+                                                <i class="fa-solid fa-address-book fs-2" style="color: #D1D5DC;"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="d-block fs-5" style="color: #6A7282;">No contacts found</span>
+                                            <span style="color: #9FA7B4;font-size: 14px;">Click "Add Contact" to get
+                                                started</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" col-xl-3  ">
+                    <div class="hghyu  ">
+
+                        <div class="row gy-3">
+                            <div class="col-12  ">
+                                <div class="rounded-4 overflow-hidden fav">
+                                    <div class=" d-flex p-3 align-items-center" style="background-color: #FFF7EC;">
+                                        <div class=" fs-6 rounded-3 star"
+                                            style="width: fit-content;color: white; margin-right: 13px;padding: 10px;">
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+                                        <div>
+                                            <span class="fs-6 fw-semibold d-block">Favorites</span>
+                                            <span class="fw-normal" style="font-size: 12px;color: #6A7282;">Quick access
+                                                to starred
+                                                contacts</span>
+                                        </div>
+                                    </div>
+                                    <div class="py-3 bg-white " style="color: #6A7282;">
+                                        <div id="nofavorites">
+                                            <p class="text-center">No favorites yet</p>
+
+                                        </div>
+                                    </div>
+                                    <!-- <div class="p-3 bg-white">
+                                    <div class="p-2 rounded-3  d-flex align-items-center justify-content-between felfel"
+                                        style="background-color: #F8FAFC;">
+                                        <div class=" d-flex align-items-center">
+                                            <div class="msmall me-2">M
+                                            </div>
+                                            <div>
+                                                <span class="d-block " style="font-size: 14px;">mah</span>
+                                                <span class="d-block" style="font-size: 14px;">01076555448
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <a href="">
+                                            <span class="location me-2" style="padding: 18px;">
+                                                <i class="fa-solid fa-phone"></i>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div> -->
+                                </div>
+                            </div>
+                            <div class=" col-12">
+                                <div class="rounded-4 overflow-hidden fav mb-5">
+                                    <div class=" d-flex p-3 align-items-center" style="background-color: #FEF2F2;">
+                                        <div class=" fs-6 rounded-3 "
+                                            style="width: fit-content;color: white; margin-right: 13px;padding: 10px;background-color: #F81244;">
+                                            <i class="fa-solid fa-heart-pulse"></i>
+                                        </div>
+                                        <div>
+                                            <span class="fs-6 fw-semibold d-block">Emergency</span>
+                                            <span class="fw-normal" style="font-size: 12px;color: #6A7282;">Important
+                                                contacts for urgent calls
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div id="noemergency" class="py-3 bg-white  " style="color: #6A7282;">
+                                        <div id="noemer">
+                                            <p>No emergency contacts</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-6 p-0 bg-white container-contact rounded-4 overflow-hidden">
+                <div class="emerg">
+                    <div class="px-4 py-4">
+                        <div class="d-flex align-items-center bg-info justify-content-between pulsecontact">
+                            <div class="m">M
+
+                                <div id="pulse" class="pulse d-none"><i class="fa-solid fa-heart-pulse "></i></div>
+                                <div id="stary" class="stary d-none"><i class="fa-solid fa-star "></i></div>
+                            </div>
+                            <div>
+                                <span>mahmoud</span>
+                                <div class="bg-danger d-flex align-items-center">
+                                    <span class="phone"><i class="fa-solid fa-phone" style="color: #155DFC;"></i></span>
+                                    <span>01023456988</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mt-3">
+                            <span class="envelope me-2">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <span class="" style="color: #6A7282;">
+                                mahmoudelrakhaey@gmail.com
+                            </span>
+                        </div>
+                        <div class="d-flex align-items-center mt-3">
+                            <span class="location me-2">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <span class="" style="color: #6A7282;">
+                                hooren
+                            </span>
+                        </div>
+                        <div class="mt-3  mb-0">
+                            <span
+                                style="color: #2A9764;background-color: #DBFCE7;border-radius: 10px; width: fit-content; padding:3px 10px;">friends</span>
+                            <span id="Emergency" class="d-none"
+                                style="color: #EC003F;background-color: #FFF1F2;border-radius: 10px; width: fit-content; padding:3px 10px;"><i
+                                    class="fa-solid fa-heart-pulse "></i> Emergency</span>
+                        </div>
+                    </div>
+                    <div class="icons px-4 mt-0">
+                        <div class=" py-3 d-flex justify-content-between align-items-center">
+                            <div class="icins1 d-flex">
+                                <a href="">
+                                    <span class="location me-2" style="padding: 18px;">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </span>
+                                </a>
+                                <a href="">
+                                    <span class="envelope me-2" style="padding: 18px;">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="d-flex">
+                                <button id="enve-star" class="envelope1 env1 enve-star me-2"
+                                    style="padding: 18px;border: none;">
+                                    <i id="star" class="fa-regular fa-star "></i>
+                                </button>
+                                <button id="enve-heart" class="envelope1 env1 enve-heart me-2"
+                                    style="padding: 18px;border: none;">
+                                    <i id="heart" class="fa-regular fa-heart "></i>
+                                </button>
+                                <button class="envelope1 enve-pen env2 me-2" style="padding: 18px;border: none;">
+
+                                    <i class="fa-solid fa-pen"></i>
+
+                                </button>
+                                <button class="envelope1 enve-trash env2 me-2" style="padding: 18px;border: none;">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/bootstrap.bundle.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
