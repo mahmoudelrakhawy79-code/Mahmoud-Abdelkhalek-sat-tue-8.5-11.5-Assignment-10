@@ -59,6 +59,7 @@ function validate(ele) {
         PhoneNumber: /^01[0-2][0-9]{8}$/g,
         EmailAddress: /^\w+@gmail\.com$/i,
     }
+
     if (ele.value == '') {
         ele.nextElementSibling.classList.add('d-none');
         ele.addEventListener("blur", function () {
@@ -337,7 +338,6 @@ function emrfunc() {
             emrcount.innerHTML = `
             <span class="fw-bold fs-4">0</span>
             `;
-
         }
     }
 }
