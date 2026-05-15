@@ -131,13 +131,13 @@ save.onclick = function () {
 
         emrfunc();
         gettotal();
+        if (inputcontainer.classList.contains('d-block')) {
+            inputcontainer.classList.remove('d-block');
+            inputcontainer.classList.add('d-none');
+            overlay.style.opacity = 0;
+            overlay.style.pointerEvents = "none";
+        }
         clear()
-    }
-    if (inputcontainer.classList.contains('d-block')) {
-        inputcontainer.classList.remove('d-block');
-        inputcontainer.classList.add('d-none');
-        overlay.style.opacity = 0;
-        overlay.style.pointerEvents = "none";
     }
 }
 
