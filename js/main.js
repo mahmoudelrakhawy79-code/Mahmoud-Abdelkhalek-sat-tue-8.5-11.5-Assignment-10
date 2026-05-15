@@ -53,6 +53,15 @@ closey.onclick = function () {
     }
     clear();
 }
+cancel.onclick = function () {
+    if (inputcontainer.classList.contains('d-block')) {
+        inputcontainer.classList.remove('d-block');
+        inputcontainer.classList.add('d-none');
+        overlay.style.opacity = 0;
+        overlay.style.pointerEvents = "none";
+    }
+    clear();
+}
 function validate(ele) {
     let reg = {
         FullName: /^[\w\s]{2,50}$/i,
@@ -124,6 +133,12 @@ save.onclick = function () {
         gettotal();
         clear()
     }
+    if (inputcontainer.classList.contains('d-block')) {
+        inputcontainer.classList.remove('d-block');
+        inputcontainer.classList.add('d-none');
+        overlay.style.opacity = 0;
+        overlay.style.pointerEvents = "none";
+    }
 }
 
 
@@ -193,7 +208,7 @@ ${arr[i].EmailAddress}
                                         <i class="fa-solid fa-phone"></i>
                                     </span>
                                 </a>
-                                <a href="">
+                                <a href="mailto:${arr[i].EmailAddress}">
                                     <span class="envelope me-2" style="padding: 18px;">
                                         <i class="fa-solid fa-envelope"></i>
                                     </span>
@@ -261,7 +276,7 @@ function favfunc() {
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <a href="">
+                                                    <a href="tel:${arr[i].PhoneNumber}">
                                                         <span class="location swsw me-2" style="padding: 18px;">
                                                             <i class="fa-solid fa-phone"></i>
                                                         </span>
@@ -314,7 +329,7 @@ function emrfunc() {
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <a href="">
+                                                    <a href="tel:${arr[i].PhoneNumber}">
                                                         <span class="location swsw2 me-2" style="padding: 18px;">
                                                             <i class="fa-solid fa-phone"></i>
                                                         </span>
@@ -479,7 +494,7 @@ function update() {
         !validate(PhoneNumber) ||
         !validate(EmailAddress) ||
         !numcheck() ||
-        !numduplicate(PhoneNumber.value) ||
+        !numduplicate(PhoneNumber.value, upd) ||
         !checkname()
     ) {
         numduplicate(PhoneNumber.value)
@@ -494,6 +509,7 @@ function update() {
     arr[upd]["Group"] = Group.value;
     arr[upd]["Favorites"] = Favorites.checked;
     arr[upd]["emergency"] = emergency.checked;
+    arr[upd]["Notes"] = Notes.value;
     addproduct();
     updateStarsUI();
     updateemrUI();
@@ -504,6 +520,12 @@ function update() {
 
     saveupdate.classList.add('d-none');
     save.classList.remove('d-none');
+    if (inputcontainer.classList.contains('d-block')) {
+        inputcontainer.classList.remove('d-block');
+        inputcontainer.classList.add('d-none');
+        overlay.style.opacity = 0;
+        overlay.style.pointerEvents = "none";
+    }
 
     clear();
 }
@@ -602,7 +624,7 @@ ${arr[i].EmailAddress}
                     <div class="icons px-4 mt-0">
                         <div class=" py-3 d-flex justify-content-between align-items-center">
                             <div class="icins1 d-flex">
-                                <a href="">
+                                <a href="tel:${arr[i].PhoneNumber}">
                                     <span class="location me-2" style="padding: 18px;">
                                         <i class="fa-solid fa-phone"></i>
                                     </span>
@@ -702,19 +724,25 @@ function numcheck() {
     return true;
 
 }
-function numduplicate(value) {
+function numduplicate(value, currentIndex = -1) {
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i]["PhoneNumber"].includes(value)) {
+
+        if (i === currentIndex) {
+            continue;
+        }
+
+        if (arr[i].PhoneNumber === value) {
             Swal.fire({
                 icon: "warning",
                 title: "Duplicate Phone Number",
-                text: `A contact with this phone number already exists: ${arr[i]['FullName']}`
+                text: `A contact with this phone number already exists: ${arr[i].FullName}`
             });
+
             return false;
         }
     }
-    return true;
 
+    return true;
 }
 function checkname() {
     if (FullName.value == "") {
