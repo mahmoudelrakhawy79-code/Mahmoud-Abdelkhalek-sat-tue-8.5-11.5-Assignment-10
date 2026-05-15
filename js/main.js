@@ -276,7 +276,7 @@ function favfunc() {
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <a href="tel:${arr[i].PhoneNumber}">
+                                                    <a href="tel:${arr[j].PhoneNumber}">
                                                         <span class="location swsw me-2" style="padding: 18px;">
                                                             <i class="fa-solid fa-phone"></i>
                                                         </span>
@@ -329,7 +329,7 @@ function emrfunc() {
                                                             </span>
                                                         </div>
                                                     </div>
-                                                    <a href="tel:${arr[i].PhoneNumber}">
+                                                    <a href="tel:${arr[u].PhoneNumber}">
                                                         <span class="location swsw2 me-2" style="padding: 18px;">
                                                             <i class="fa-solid fa-phone"></i>
                                                         </span>
@@ -629,7 +629,7 @@ ${arr[i].EmailAddress}
                                         <i class="fa-solid fa-phone"></i>
                                     </span>
                                 </a>
-                                <a href="">
+                                <a href="mailto:${arr[i].EmailAddress}">
                                     <span class="envelope me-2" style="padding: 18px;">
                                         <i class="fa-solid fa-envelope"></i>
                                     </span>
